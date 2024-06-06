@@ -1,0 +1,57 @@
+/**
+ * Created by winardo on 3/13/2024.
+ */
+.summary {
+    font-size: .95em;
+    line-height: 1.6em;
+    height: 7.8em; /* adjust based on line-height * rows desired */
+    overflow: hidden;
+}
+.summary-title {
+    height: 3.4em; /* adjust based on line-height * rows desired */
+    line-height: 1.7em;
+    overflow: hidden;
+}
+.news-card {
+    margin: 0 auto;
+    width: 355px;
+    box-shadow: 0 0.1rem 1rem 0 rgba(164,164,164,0.3);
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.img-container {
+    height: 227px;
+    text-align: center;
+}
+.img-container .img-def {
+    max-width: 100%;
+    height: 100%;
+}
+.news-card .title-section {
+    padding: 0 1.3rem;
+    border-left: 2px solid #F2A501;
+    font-weight: 700;
+    margin: 1.3rem 0;
+}
+.news-card .body-section {
+    color: #000435;
+    flex: 1;
+    padding: 0 1.3rem 2rem;
+}
+
+.news-card .title-section .tag{
+    padding: 0.2rem 0.5rem;
+    margin-right: 1rem;
+    color: white;
+    background-color: #F2A501;
+    border-radius: 0.4rem;
+}
+
+.news-card .title-section .date-text {
+    color: grey;
+}
+
+.news-card .title-section .title{
+    font-size: 1.1rem;
+    margin: 1rem 0 0;
+}

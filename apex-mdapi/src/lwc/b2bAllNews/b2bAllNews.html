@@ -1,0 +1,49 @@
+<!--
+ - Created by winardo on 3/13/2024.
+ -->
+
+<!-- B2B Last News -->
+<template>
+	<div>
+		<div class="slds-grid slds-wrap slds-m-around_x-large custom-list">
+			<ul class="slds-list_horizontal custom-list-ul">
+				<template for:each={tagList} for:item="tag">
+					<li key={tag.name} data-name={tag.name} class={tag.className} onclick={handleTagClick}>{tag.name}</li>
+				</template>
+			</ul>
+		</div>
+		<div class="slds-grid slds-wrap slds-align_absolute-center">
+			<template if:true={isLoading}>
+				<div style="position:relative">
+					<lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+				</div>
+			</template>
+			<template if:false={isLoading}>
+				<template if:false={empty}>
+					<template for:each={filteredNews} for:item="n">
+						<div key={n.id} class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 slds-p-around_medium slds-align_absolute-center" >
+							<c-b2b-news news={n}></c-b2b-news>
+						</div>
+					</template>
+					<div class="slds-col slds-size_1-of-1 slds-large-size_12-of-12 slds-p-around_medium slds-align_absolute-center" lwc:if={loadMoreVisible}>
+						<template if:false={loadMoreLoading}>
+							<button class="load-more" onclick={handleLoadMore} lwc:if={loadMoreVisible}>Load More</button>
+						</template>
+						<template if:true={loadMoreLoading}>
+							<div style="position:relative">
+								<lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+							</div>
+						</template>
+					</div>
+				</template>
+				<template if:true={empty}>
+					<div class="slds-col slds-size_1-of-1" >
+						<div style="width:100%;text-align:center;font-size: 18px;line-height: 200px;">
+							<i>No news to display</i>
+						</div>
+					</div>
+				</template>
+			</template>
+		</div>
+	</div>
+</template>

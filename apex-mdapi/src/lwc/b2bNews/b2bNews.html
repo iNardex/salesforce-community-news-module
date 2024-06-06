@@ -1,0 +1,32 @@
+<!--
+ - Created by winardo on 3/13/2024.
+ -->
+
+<!-- B2B News -->
+<template>
+	<div class="news-card" onclick={handleNavigate}>
+		<div class="img-section">
+			<div class="img-container">
+				<img class="img-def" src={news.detailImageUrl} />
+			</div>
+		</div>
+		<div class="title-section">
+			<div>
+				<span class="tag">{news.tag}</span>
+				<time datetime="13 march 2024" class="date-text">
+					<lightning-formatted-date-time value={news.startDate}></lightning-formatted-date-time>
+				</time>
+			</div>
+			<h3 class="title">
+				<div class="summary-title">
+					{news.title}
+				</div>
+			</h3>
+		</div>
+		<div class="body-section">
+			<div class="summary">
+				<lightning-formatted-rich-text value={news.body}></lightning-formatted-rich-text>
+			</div>
+		</div>
+	</div>
+</template>

@@ -1,0 +1,109 @@
+/**
+ * Created by sacerra on 20/03/2024.
+ */
+
+.custom-carousel {
+    overflow: hidden;
+    height: 500px; /* Altezza massima del carosello */
+}
+
+.carousel-container {
+    display: flex;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 100%;
+    overflow: hidden; /* Nasconde eventuali overflow */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Altezza massima del carosello */
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-start;
+}
+
+.carousel-caption-text {
+    color: white;
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+/*    max-height: 10rem;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.button-move {
+    width: 50px;
+    height: 50px;
+    background-color: var(--dxp-s-link-text-color);
+    color:#fff;
+    border-radius: 26px;
+    border: none;
+}
+
+.button-move:hover {
+    background-color: var(--dxp-s-button-color-hover);
+}
+
+.indicators {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.indicators li {
+    display: inline-block;
+    margin-right: 0.5rem;
+    width: 1rem; /* Larghezza del rettangolo */
+    height: 1rem; /* Altezza del rettangolo */
+    background-color: #d3d3d3; /* Colore del rettangolo */
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.indicators li:last-child {
+    margin-right: 0;
+}
+
+.indicators a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.indicators li.active {
+    background-color: var(--dxp-s-link-text-color); /* Colore del rettangolo attivo */
+}

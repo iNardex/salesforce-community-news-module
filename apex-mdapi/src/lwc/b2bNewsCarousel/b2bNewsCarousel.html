@@ -1,0 +1,45 @@
+<!--
+ - Created by sacerra on 20/03/2024.
+ -->
+
+<!-- B2B News Carousel -->
+<template>
+    <template if:true={haveNews}>
+        <div class="custom-carousel">
+            <div class="carousel-container">
+                <div key={currentNews.id} class="carousel-item">
+                    <div class="image-container">
+                        <div class="image-overlay"></div>
+                        <img class="carousel-image" src={currentNews.carouselImageUrl} alt={currentNews.title}/>
+                        <div class="carousel-caption">
+                            <div class="carousel-caption-text">{currentNews.title}</div>
+                            <button class="button-move"
+                                    onclick={handleNavigate}
+                                    data-id={currentNews.id}>
+                                ➔
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Navigation-->
+        <div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center slds-p-horizontal_x-large slds-m-top_medium">
+            <div class="slds-grid slds-grid_vertical">
+                <ul role="tablist" class="indicators">
+                    <template for:each={indicators} for:item="indicator">
+                        <li
+                                key={indicator.index}
+                                role="presentation"
+                                class={indicator.class}
+                                data-index={indicator.index}
+                                onclick={handleIndicatorClick}>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+
+    </template>
+</template>

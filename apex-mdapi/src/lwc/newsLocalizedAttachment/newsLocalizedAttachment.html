@@ -1,0 +1,30 @@
+<!--
+ - Created by winardo on 3/11/2024.
+ -->
+
+<!-- News Localized Attachment -->
+<template>
+	<lightning-card  variant="Narrow"  title={title} icon-name="utility:image">
+		<p class="slds-p-horizontal_small slds-align_absolute-center" if:true={isLoading}>
+			<lightning-spinner alternative-text="Loading" size="x-small"></lightning-spinner>
+		</p>
+		<p class="slds-p-horizontal_small slds-align_absolute-center" if:false={isLoading}>
+			<template lwc:if={imageUrl}>
+				<img src={imageUrl} />
+			</template>
+			<template lwc:else>
+				<lightning-file-upload
+					label="Upload image"
+					name="changeImageUploader"
+					accept={acceptedFormats}
+					onuploadfinished={handleFileUpload}
+					multiple="false"
+				> </lightning-file-upload>
+			</template>
+		</p>
+		<p slot="footer">
+			<lightning-button if:true={imageUrl} variant="brand" label="Delete" title="Non-primary action" onclick={handleRemove} class="slds-m-left_x-small"></lightning-button>
+		</p>
+	</lightning-card>
+
+</template>

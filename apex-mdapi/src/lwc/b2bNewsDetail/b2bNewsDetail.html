@@ -1,0 +1,30 @@
+<!--
+ - Created by winardo on 3/19/2024.
+ -->
+
+<!-- B2B News Detail -->
+<template>
+	<div class="slds-grid slds-wrap">
+		<template if:true={isLoading}>
+			LOADING
+		</template>
+		<template if:false={isLoading}>
+			<div class="slds-col slds-size_1-of-1 article-head">
+				<h1>{news.title}</h1>
+			</div>
+			<div class="slds-col slds-size_1-of-1 article-date" >
+				<time datetime="07 March 2024"><lightning-formatted-date-time value={news.startDate}></lightning-formatted-date-time></time>&nbsp;_&nbsp;<span class="tag" >{news.tag}</span>
+			</div>
+			<div if:true={videoTop} class="slds-col slds-size_1-of-1 slds-align_absolute-center article-body" style="margin-top: 30px;margin-bottom: 30px;">
+				<iframe style="width: 100%; height: 500px;" src={news.youtubeUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			</div>
+			<div class="slds-col slds-size_1-of-1 article-body">
+				<img src={news.detailImageUrl} class={news.clazz} />
+				<p class="p-body"><lightning-formatted-rich-text value={news.body}></lightning-formatted-rich-text></p>
+			</div>
+			<div if:true={videoBottom} class="slds-col slds-size_1-of-1 slds-align_absolute-center article-body" style="margin-top: 30px;">
+				<iframe style="width: 100%; height: 500px;" src={news.youtubeUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			</div>
+		</template>
+	</div>
+</template>

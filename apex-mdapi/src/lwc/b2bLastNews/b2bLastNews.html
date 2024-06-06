@@ -1,0 +1,38 @@
+<!--
+ - Created by winardo on 3/13/2024.
+ -->
+
+<!-- B2B Last News -->
+<template>
+	<div class="section-background"></div>
+	<div>
+		<div class="slds-grid slds-wrap">
+			<div class="slds-col slds-size_1-of-3 slds-p-left_medium"><!-- SPacer --></div>
+			<div class="slds-col slds-size_1-of-3 slds-p-left_medium slds-align_absolute-center" style="margin-top: 20px; margin-bottom: 10px;">
+				<div class="brand-title">Latest News</div>
+			</div>
+			<div class="slds-col slds-size_1-of-3 slds-p-right_medium" style="margin-top: 20px; margin-bottom: 10px;">
+				<div class="slds-float_right">
+					<div>
+						<button class="button-move" style="margin: 0 15px;" onclick={handleBack} disabled={disableBack}>&lt;</button>
+						<button class="button-move" onclick={handleNext} disabled={disableNext}>&gt;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class={cssDivClass}>
+			<template if:true={isLoading}>
+				<div style="position:relative">
+					<lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+				</div>
+			</template>
+			<template if:false={isLoading}>
+				<template for:each={news} for:item="n">
+					<div key={n.id} class={n.css} >
+						<c-b2b-news news={n}></c-b2b-news>
+					</div>
+				</template>
+			</template>
+		</div>
+	</div>
+</template>

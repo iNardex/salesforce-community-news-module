@@ -68,5 +68,5 @@
         <members>Trigger_NewsLocalized</members>
         <name>ApexTrigger</name>
     </types>
-    <version>60.0</version>
+    <version>59.0</version>
 </Package>

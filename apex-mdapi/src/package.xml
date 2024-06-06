@@ -17,6 +17,7 @@
         <members>Batch_DeactivateExpiredNews</members>
         <members>News_TEST</members>
         <members>B2BNewsController_TEST</members>
+        <members>UserAccountDAO</members>
         <name>ApexClass</name>
     </types>
     <types>

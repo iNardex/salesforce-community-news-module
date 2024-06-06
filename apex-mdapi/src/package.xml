@@ -49,20 +49,20 @@
         <members>NewsLocalized__c.YuotubeLink__c</members>
         <name>CustomField</name>
     </types>
-    <types>
-        <members>News_Localized_Record_Page</members>
-        <members>News_Record_Page</members>
-        <name>FlexiPage</name>
-    </types>
+<!--    <types>-->
+<!--        <members>News_Localized_Record_Page</members>-->
+<!--        <members>News_Record_Page</members>-->
+<!--        <name>FlexiPage</name>-->
+<!--    </types>-->
     <types>
         <members>NewsLocalized__c-NewsLocalized Layout</members>
         <members>News__c-News Layout</members>
         <name>Layout</name>
     </types>
-    <types>
-        <members>News__c.CreateLocalization</members>
-        <name>QuickAction</name>
-    </types>
+<!--    <types>-->
+<!--        <members>News__c.CreateLocalization</members>-->
+<!--        <name>QuickAction</name>-->
+<!--    </types>-->
     <types>
         <members>Trigger_News</members>
         <members>Trigger_NewsLocalized</members>

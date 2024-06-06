@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>LocalizedCompactLayout</fullName>
-    <fields>Name</fields>
-    <fields>News__c</fields>
-    <fields>IsDefault__c</fields>
-    <fields>Locale__c</fields>
-    <label>Localized Compact Layout</label>
-</CompactLayout>

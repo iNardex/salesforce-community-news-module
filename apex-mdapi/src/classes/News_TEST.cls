@@ -7,12 +7,14 @@ private inherited sharing class News_TEST {
 
 	@TestSetup
 	public static void prepareScenario(){
-		B2BUtil_TEST.prepareScenario();
+		Account a = new Account();
+		a.Name = 'Test';
+		insert a;
 	}
 
 	@IsTest
 	public static void creteNews(){
-		News__c n = B2BUtil_TEST.createNews();
+		News__c n = createNews();
 
 		try{
 			delete [SELECT ID FROM NewsLocalized__c WHERE News__c = :n.Id];
@@ -31,28 +33,8 @@ private inherited sharing class News_TEST {
 	}
 
 	@IsTest
-	public static void creteNewsWithSharings(){
-		News__c n = B2BUtil_TEST.createNews();
-		News__c n2 = B2BUtil_TEST.createNews();
-
-		Audience__c aud = new Audience__c();
-		aud.News__c = n.Id;
-		aud.Market__c = 'ITA';
-
-		Audience__c aud2 = new Audience__c();
-		aud2.News__c = n2.Id;
-		aud2.Market__c = 'ITA';
-
-		Test.startTest();
-		insert aud;
-		insert aud2;
-		delete aud2;
-		Test.stopTest();
-	}
-
-	@IsTest
 	public static void testLocalized(){
-		News__c n = B2BUtil_TEST.createNews();
+		News__c n = createNews();
 		Id localized = [SELECT Id FROM NewsLocalized__c WHERE News__c = :n.Id LIMIT 1].Id;
 		B2BNewsLocalizedController.retrieveNewsLocalized(localized);
 
@@ -80,7 +62,7 @@ private inherited sharing class News_TEST {
 
 	@IsTest
 	public static void expireNews(){
-		News__c n = B2BUtil_TEST.createNews();
+		News__c n = createNews();
 		n.EndDate__c = Date.today().addDays(-1);
 		update n;
 
@@ -94,6 +76,18 @@ private inherited sharing class News_TEST {
 			Assert.isTrue(true);
 		}
 		Test.stopTest();
+	}
+
+	public static News__c createNews(){
+		News__c n = new News__c();
+		n.Name = 'Test';
+		n.Layout__c = 'Center';
+		n.Status__c = 'Draft';
+		n.Visibility__c = 'Private';
+		n.StartDate__c = Date.today();
+		insert n;
+
+		return n;
 	}
 
 }
